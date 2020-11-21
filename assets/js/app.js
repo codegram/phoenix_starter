@@ -12,6 +12,7 @@ import "../css/app.css"
 //     import {Socket} from "phoenix"
 //     import socket from "./socket"
 //
+import "alpinejs"
 import "phoenix_html"
 import { Socket } from "phoenix"
 import NProgress from "nprogress"
@@ -22,6 +23,13 @@ const csrfToken = document
   .getAttribute("content")
 const liveSocket = new LiveSocket("/live", Socket, {
   params: { _csrf_token: csrfToken },
+  dom: {
+    onBeforeElUpdated(from, to) {
+      if (from.__x) {
+        window.Alpine.clone(from.__x, to)
+      }
+    },
+  },
 })
 
 // Show progress bar on live navigation and form submits
