@@ -57,7 +57,7 @@ jobs:
         run: mix deps.get
       - name: Check format
         run: mix format --check-formatted
-      - run: npm install
+      - run: npm ci
         working-directory: ./assets
       - name: Run tests
         run: mix test
