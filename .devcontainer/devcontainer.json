@@ -23,6 +23,9 @@
     "stylelint.vscode-stylelint",
     "ms-azuretools.vscode-docker"
   ],
+  "settings": {
+    "terminal.integrated.shell.linux": "/usr/bin/zsh"
+  },
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   "forwardPorts": [4000]
   // "postCreateCommand": "sudo chown $USERNAME:$USERNAME assets/node_modules deps _build .elixir_ls",

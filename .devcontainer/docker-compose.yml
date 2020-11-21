@@ -8,8 +8,6 @@ services:
     depends_on:
       - db
     command: /bin/sh -c "while sleep 1000; do :; done"
-    environment:
-      DATABASE_URL: postgres://postgres:postgres@db:5432/database
   db:
     image: postgres:13.1
     environment:

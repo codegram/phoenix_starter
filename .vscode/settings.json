@@ -1,7 +1,6 @@
 {
   "css.validate": false,
   "editor.formatOnSave": true,
-  "terminal.integrated.shell.linux": "/usr/bin/zsh",
   "stylelint.configBasedir": "assets",
   "files.associations": {
     "*.css": "postcss"
@@ -19,5 +18,8 @@
   },
   "[postcss]": {
     "editor.defaultFormatter": "stylelint.vscode-stylelint"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.stylelint": true
   }
 }

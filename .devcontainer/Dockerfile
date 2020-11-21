@@ -1,4 +1,4 @@
-FROM elixir:1.10.4-slim
+FROM elixir:1.11.2-slim
 
 ARG USERNAME=vscode
 
@@ -9,11 +9,14 @@ RUN apt-get update && \
     apt-get install -y git && \
     apt-get install -y curl && \
     apt-get install -y wget && \
-    apt-get install -y nodejs && \
     apt-get install -y gnupg2 && \
     apt-get install -y rubygems && \
-    apt-get install -y zsh && \
-    curl -L https://npmjs.org/install.sh | sh
+    apt-get install -y zsh
+
+RUN curl -sL https://deb.nodesource.com/setup_11.x  | bash -
+
+RUN apt-get update && \
+    apt-get install -y nodejs
 
 RUN gem install htmlbeautifier
 
