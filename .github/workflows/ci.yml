@@ -13,9 +13,12 @@ jobs:
 
     services:
       postgres:
-        image: postgres
+        image: postgres:13.1
         env:
+          POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: database_test
+          PGDATA: /var/lib/postgresql/data/pgdata
         ports:
           - "5432:5432"
         options: >-
