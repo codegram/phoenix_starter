@@ -55,8 +55,11 @@ jobs:
           restore-keys: ${{ runner.os }}-npm-
       - name: Install dependencies
         run: mix deps.get
-      - name: Check format
+      - name: Check Elixir formatting
         run: mix format --check-formatted
+      - name: Check JS and CSS formatting
+        run: npm run lint
+        working-directory: ./assets
       - run: npm ci
         working-directory: ./assets
       - run: npm run deploy
