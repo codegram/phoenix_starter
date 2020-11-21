@@ -35,6 +35,10 @@ jobs:
         with:
           elixir-version: "1.11.2" # Define the elixir version [required]
           otp-version: "23.0" # Define the OTP version [required]
+      - name: Set up node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "11"
       - name: Restore deps cache
         uses: actions/cache@v2
         with:
