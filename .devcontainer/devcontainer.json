@@ -2,7 +2,7 @@
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.134.1/containers/docker-existing-docker-compose
 // If you want to run as a non-root user in the container, see .devcontainer/docker-compose.yml.
 {
-  "name": "Remoteplay",
+  "name": "Phoenix Starter",
   // Update the 'dockerComposeFile' list if you have more compose files or use different names.
   // The .devcontainer/docker-compose.yml file contains any overrides you need/want to make.
   "dockerComposeFile": ["docker-compose.yml"],
@@ -12,16 +12,17 @@
   // The optional 'workspaceFolder' property is the path VS Code should open by default when
   // connected. This is typically a file mount in .devcontainer/docker-compose.yml
   "workspaceFolder": "/home/vscode/app",
-  
+
   // Add the IDs of extensions you want installed when the container is created.
   "extensions": [
-	"JakeBecker.elixir-ls",
-	"esbenp.prettier-vscode",
-	"dbaeumer.vscode-eslint",
-	"bradlc.vscode-tailwindcss",
-	"adrianwilczynski.alpine-js-intellisense",
-	"stylelint.vscode-stylelint"
-],
+    "JakeBecker.elixir-ls",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "bradlc.vscode-tailwindcss",
+    "adrianwilczynski.alpine-js-intellisense",
+    "stylelint.vscode-stylelint",
+    "ms-azuretools.vscode-docker"
+  ],
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   "forwardPorts": [4000]
   // "postCreateCommand": "sudo chown $USERNAME:$USERNAME assets/node_modules deps _build .elixir_ls",

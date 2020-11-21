@@ -11,11 +11,13 @@ module.exports = (env, options) => {
 
   return {
     optimization: {
+      minimize: !devMode,
       minimizer: [
-        new TerserPlugin({ cache: true, parallel: true, sourceMap: devMode }),
-        new OptimizeCSSAssetsPlugin({})
-      ]
+        new TerserPlugin({ parallel: true }),
+        new OptimizeCSSAssetsPlugin({}),
+      ],
     },
+
     entry: {
       'app': glob.sync('./vendor/**/*.js').concat(['./js/app.js'])
     },

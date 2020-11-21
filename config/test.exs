@@ -8,8 +8,8 @@ use Mix.Config
 config :phoenix_starter, PhoenixStarter.Repo,
   username: "postgres",
   password: "postgres",
-  database: "phoenix_starter_test#{System.get_env("MIX_TEST_PARTITION")}",
-  hostname: "localhost",
+  database: "database_test#{System.get_env("MIX_TEST_PARTITION")}",
+  hostname: "db",
   pool: Ecto.Adapters.SQL.Sandbox
 
 # We don't run a server during test. If one is required,
