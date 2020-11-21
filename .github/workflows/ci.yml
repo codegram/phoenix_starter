@@ -2,14 +2,16 @@ name: Test
 
 on:
   push:
-    branches: [master, staging]
+    branches: master
   pull_request:
-    branches: [master, staging]
+    branches: master
 
 jobs:
   test:
     name: Test
     runs-on: ubuntu-latest
+    env:
+      DATABASE_HOST: localhost
 
     services:
       postgres:

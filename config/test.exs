@@ -1,5 +1,7 @@
 use Mix.Config
 
+database_host = System.get_env("DATABASE_HOST") || "db"
+
 # Configure your database
 #
 # The MIX_TEST_PARTITION environment variable can be used
@@ -9,7 +11,7 @@ config :phoenix_starter, PhoenixStarter.Repo,
   username: "postgres",
   password: "postgres",
   database: "database_test#{System.get_env("MIX_TEST_PARTITION")}",
-  hostname: "db",
+  hostname: database_host,
   pool: Ecto.Adapters.SQL.Sandbox
 
 # We don't run a server during test. If one is required,
