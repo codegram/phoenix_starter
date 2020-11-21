@@ -3,7 +3,7 @@
   "description": " ",
   "license": "MIT",
   "scripts": {
-    "deploy": "webpack --mode production",
+    "deploy": "NODE_ENV=production webpack --mode production",
     "lint": "npm-run-all eslint stylelint",
     "eslint": "eslint --ext .js --ignore-path ../.gitignore .",
     "stylelint": "stylelint **/*.css",

@@ -59,5 +59,7 @@ jobs:
         run: mix format --check-formatted
       - run: npm ci
         working-directory: ./assets
+      - run: npm run deploy
+        working-directory: ./assets
       - name: Run tests
         run: mix test
