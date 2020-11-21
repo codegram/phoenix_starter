@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+  phoenix:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - db
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    environment:
+      DATABASE_URL: postgres://postgres:postgres@db:5432/database
+  db:
+    image: postgres:9.6
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: database
+      PGDATA: /var/lib/postgresql/data/pgdata
+    restart: always
+    volumes:
+      - db:/var/lib/postgresql/data
+
+volumes:
+  deps:
+  elixir_ls:
+  build:
+  node_modules:
+  db:

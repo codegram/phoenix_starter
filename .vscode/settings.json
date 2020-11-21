@@ -1,0 +1,15 @@
+{
+  "css.validate": false,
+  "editor.formatOnSave": true,
+  "terminal.integrated.shell.linux": "/usr/bin/zsh",
+  "stylelint.configBasedir": "assets",
+  "files.associations": {
+    "*.css": "postcss"
+  },
+  "eslint.workingDirectories": ["./assets"],
+  "eslint.nodePath": "assets",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.fixAll.stylelint": true
+  }
+}
