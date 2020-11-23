@@ -11,6 +11,7 @@ RUN apt-get update && \
     apt-get install -y wget && \
     apt-get install -y gnupg2 && \
     apt-get install -y rubygems && \
+    apt-get install -y rename && \
     apt-get install -y zsh
 
 RUN curl -sL https://deb.nodesource.com/setup_11.x  | bash -
