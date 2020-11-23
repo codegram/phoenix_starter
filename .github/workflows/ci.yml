@@ -2,9 +2,9 @@ name: Test
 
 on:
   push:
-    branches: master
+    branches: main
   pull_request:
-    branches: master
+    branches: main
 
 jobs:
   test:
@@ -57,6 +57,9 @@ jobs:
         run: mix deps.get
       - name: Check Elixir formatting
         run: mix format --check-formatted
+      - name: Install NodeJS deps
+        run: npm install
+        working-directory: ./assets
       - name: Check JS and CSS formatting
         run: npm run lint
         working-directory: ./assets
