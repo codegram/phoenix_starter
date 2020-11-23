@@ -22,7 +22,8 @@
 	"adrianwilczynski.alpine-js-intellisense",
 	"stylelint.vscode-stylelint",
 	"ms-azuretools.vscode-docker",
-	"pantajoe.vscode-elixir-credo"
+	"pantajoe.vscode-elixir-credo",
+	"samuel-pordeus.elixir-test"
 ],
   "settings": {
     "terminal.integrated.shell.linux": "/usr/bin/zsh"
