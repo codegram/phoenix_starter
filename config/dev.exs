@@ -4,8 +4,8 @@ use Mix.Config
 config :phoenix_starter, PhoenixStarter.Repo,
   username: "postgres",
   password: "postgres",
-  database: "database",
-  hostname: "db",
+  database: "starter_dev",
+  hostname: "localhost",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
