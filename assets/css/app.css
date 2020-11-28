@@ -2,3 +2,8 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 @import "../node_modules/nprogress/nprogress.css";
+
+// Hides Phoenix's live reload iframe
+iframe[hidden] {
+  display: none;
+}
