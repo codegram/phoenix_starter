@@ -33,7 +33,7 @@
     "postcss-import": "^13.0.0",
     "postcss-loader": "^4.1.0",
     "postcss-nested": "^5.0.1",
-    "prettier": "^2.2.0",
+    "prettier": "^2.2.1",
     "stylelint": "^13.7.2",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-rational-order": "^0.1.2",
