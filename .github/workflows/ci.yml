@@ -37,9 +37,9 @@ jobs:
           otp-version: "23.0" # Define the OTP version [required]
       - name: Copy config templates
         working-directory: "config"
-        run:
-          - cp dev.exs.example dev.exs
-          - cp test.exs.example test.exs
+        run: |
+          cp dev.exs.example dev.exs
+          cp test.exs.example test.exs
       - name: Set up node
         uses: actions/setup-node@v1
         with:
