@@ -35,6 +35,11 @@ jobs:
         with:
           elixir-version: "1.11.2" # Define the elixir version [required]
           otp-version: "23.0" # Define the OTP version [required]
+      - name: Copy config templates
+        working_directory: "config"
+        run:
+          - cp dev.exs.example dev.exs
+          - cp test.exs.example test.exs
       - name: Set up node
         uses: actions/setup-node@v1
         with:
