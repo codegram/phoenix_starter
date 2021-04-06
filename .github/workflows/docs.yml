@@ -1,0 +1,41 @@
+name: Documentation
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  test:
+    name: Docs
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Copy config templates
+        working-directory: "config"
+        run: |
+          cp dev.local.exs.example dev.local.exs
+          cp test.local.exs.example test.local.exs
+      - name: Set up Elixir
+        uses: actions/setup-elixir@v1
+        with:
+          elixir-version: "1.11.2" # Define the elixir version [required]
+          otp-version: "23.0" # Define the OTP version [required]
+          experimental-otp: true
+      - name: Restore deps cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            **/_build
+            **/deps
+          key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}
+          restore-keys: ${{ runner.os }}-mix-
+      - name: Install dependencies
+        run: mix deps.get
+      - name: Generate docs
+        run: mix docs
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.0
+        with:
+          branch: gh-pages # The branch the action should deploy to.
+          folder: doc # The folder the action should deploy.
