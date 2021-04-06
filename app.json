@@ -1,0 +1,28 @@
+{
+  "name": "PhoenixStarter",
+  "description": "PhoenixStarter application",
+  "keywords": [],
+  "success_url": "/",
+  "scripts": {
+    "postdeploy": "mix do ecto.migrate, run priv/repo/seeds.exs"
+  },
+  "env": {
+    "SECRET_KEY_BASE": {
+      "description": "A secret key for verifying the integrity of signed cookies.",
+      "generator": "secret"
+    },
+    "HEROKU_APP_NAME": {
+      "required": true
+    },
+    "POOL_SIZE": 2
+  },
+  "buildpacks": [
+    {
+      "url": "https://github.com/HashNuke/heroku-buildpack-elixir"
+    },
+    {
+      "url": "https://github.com/gjaldon/heroku-buildpack-phoenix-static.git"
+    }
+  ],
+  "addons": ["heroku-postgresql"]
+}
