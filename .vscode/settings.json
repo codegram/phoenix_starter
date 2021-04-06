@@ -35,6 +35,7 @@
     "elixir": "javascript"
   },
   "elixirLS.suggestSpecs": true,
+  "elixirLS.enableTestLenses": true,
   "elixir.credo.configurationFile": ".credo.exs",
   "elixir.credo.ignoreWarningMessages": true,
   "tailwindCSS.emmetCompletions": true,
