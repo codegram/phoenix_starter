@@ -1,5 +1,7 @@
 # PhoenixStarter
 
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/codegram/phoenix_starter)
+
 [![CI](https://github.com/codegram/phoenix_starter/actions/workflows/ci.yml/badge.svg)](https://github.com/codegram/phoenix_starter/actions/workflows/ci.yml) [![Docs](https://github.com/codegram/phoenix_starter/actions/workflows/docs.yml/badge.svg)](https://codegram.github.io/phoenix_starter)
 
 ## Setting up your development environment
