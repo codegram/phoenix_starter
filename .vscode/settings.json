@@ -1,5 +1,6 @@
 {
   "css.validate": false,
+  "editor.tabSize": 2,
   "editor.formatOnSave": true,
   "stylelint.configBasedir": "assets",
   "files.associations": {
@@ -19,6 +20,9 @@
   "[postcss]": {
     "editor.defaultFormatter": "stylelint.vscode-stylelint"
   },
+  "[elixir]": {
+    "rewrap.autoWrap.enabled": true
+  },
   "editor.codeActionsOnSave": {
     "source.fixAll": true
   },
@@ -30,6 +34,9 @@
   "tailwindCSS.includeLanguages": {
     "elixir": "javascript"
   },
+  "elixirLS.suggestSpecs": true,
+  "elixir.credo.configurationFile": ".credo.exs",
+  "elixir.credo.ignoreWarningMessages": true,
   "tailwindCSS.emmetCompletions": true,
   "tailwindCSS.experimental.classRegex": ["class:\\s*\"([^\"]*)\""],
   "headwind.classRegex": {

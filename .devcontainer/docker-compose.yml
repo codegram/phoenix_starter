@@ -20,8 +20,4 @@ services:
       - db:/var/lib/postgresql/data
 
 volumes:
-  deps:
-  elixir_ls:
-  build:
-  node_modules:
   db:

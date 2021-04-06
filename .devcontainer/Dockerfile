@@ -21,8 +21,8 @@ RUN apt-get update && \
 
 RUN gem install htmlbeautifier
 
-COPY setup.sh .
-RUN bash ./setup.sh
+COPY setup-container.sh .
+RUN bash ./setup-container.sh
 
 ENV MIX_HOME=/root/.mix
 ENV HEX_HOME=/root/.hex

@@ -1,0 +1,14 @@
+{
+  "recommendations": [
+    "JakeBecker.elixir-ls",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "bradlc.vscode-tailwindcss",
+    "adrianwilczynski.alpine-js-intellisense",
+    "stylelint.vscode-stylelint",
+    "ms-azuretools.vscode-docker",
+    "pantajoe.vscode-elixir-credo",
+    "stkb.rewrap",
+    "samuel-pordeus.elixir-test"
+  ]
+}
