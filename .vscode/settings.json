@@ -34,7 +34,7 @@
   "tailwindCSS.includeLanguages": {
     "elixir": "javascript"
   },
-  "elixirLS.suggestSpecs": true,
+  "elixirLS.suggestSpecs": false,
   "elixirLS.enableTestLenses": true,
   "elixir.credo.configurationFile": ".credo.exs",
   "elixir.credo.ignoreWarningMessages": true,
