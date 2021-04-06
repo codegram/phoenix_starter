@@ -142,7 +142,7 @@ jobs:
       - name: Install dependencies
         run: mix deps.get
       - name: Set up node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2.1.5
         with:
           node-version: "15"
       - name: Restore npm cache
@@ -183,7 +183,7 @@ jobs:
       - name: Install dependencies
         run: mix deps.get
       - name: Set up node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2.1.5
         with:
           node-version: "15"
       - name: Restore npm cache
