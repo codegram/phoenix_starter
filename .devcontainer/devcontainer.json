@@ -19,5 +19,10 @@
     "terminal.integrated.shell.linux": "/usr/bin/zsh"
   },
   "forwardPorts": [4000],
-  "postCreateCommand": "bash .devcontainer/setup-dev.sh"
+  "postCreateCommand": [
+    "cp config/dev.exs.example config/dev.exs",
+    "cp config/test.exs.example config/test.exs",
+    "mix setup",
+    "mix compile"
+  ]
 }
