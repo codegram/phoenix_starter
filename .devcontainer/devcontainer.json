@@ -19,5 +19,5 @@
     "terminal.integrated.shell.linux": "/usr/bin/zsh"
   },
   "forwardPorts": [4000],
-  "postCreateCommand": "cp config/dev.local.exs.example config/dev.local.exs && cp config/test.local.exs.example config/test.local.exs"
+  "postCreateCommand": "bash .devcontainer/setup-dev.sh"
 }
