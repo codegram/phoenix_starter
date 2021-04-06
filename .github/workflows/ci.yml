@@ -58,7 +58,7 @@ jobs:
       - name: Install dependencies
         run: mix deps.get
       - name: Run tests
-        run: mix coveralls.github
+        run: mix test
   elixir-formatting:
     name: Elixir Formatting
     runs-on: ubuntu-20.04
