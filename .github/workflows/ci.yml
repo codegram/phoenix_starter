@@ -1,4 +1,4 @@
-name: Test
+name: Tests
 
 on:
   push:
@@ -6,13 +6,16 @@ on:
   pull_request:
     branches: master
 
+env:
+  MIX_ENV: test
+
 jobs:
-  test:
-    name: Test
-    runs-on: ubuntu-latest
+  elixir-tests:
+    name: Elixir Tests
+    runs-on: ubuntu-20.04
     env:
       DATABASE_HOST: localhost
-
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     services:
       postgres:
         image: postgres:13.1
@@ -29,21 +32,21 @@ jobs:
           --health-timeout 5s
           --health-retries 5
     steps:
+      - name: Install system dependencies
+        run: |
+          sudo apt-get install -y imagemagick
       - uses: actions/checkout@v2
       - name: Copy config templates
         working-directory: "config"
         run: |
-          cp dev.exs.example dev.exs
-          cp test.exs.example test.exs
+          cp dev.local.exs.example dev.local.exs
+          cp test.local.exs.example test.local.exs
       - name: Set up Elixir
         uses: erlef/setup-elixir@v1
         with:
           elixir-version: "1.11.2" # Define the elixir version [required]
           otp-version: "23.0" # Define the OTP version [required]
-      - name: Set up node
-        uses: actions/setup-node@v1
-        with:
-          node-version: "15"
+          experimental-otp: true
       - name: Restore deps cache
         uses: actions/cache@v2
         with:
@@ -52,25 +55,145 @@ jobs:
             **/deps
           key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}
           restore-keys: ${{ runner.os }}-mix-
+      - name: Install dependencies
+        run: mix deps.get
+      - name: Run tests
+        run: mix coveralls.github
+  elixir-formatting:
+    name: Elixir Formatting
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Copy config templates
+        working-directory: "config"
+        run: |
+          cp dev.local.exs.example dev.local.exs
+          cp test.local.exs.example test.local.exs
+      - name: Set up Elixir
+        uses: erlef/setup-elixir@v1
+        with:
+          elixir-version: "1.11.2" # Define the elixir version [required]
+          otp-version: "23.0" # Define the OTP version [required]
+          experimental-otp: true
+      - name: Restore deps cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            **/_build
+            **/deps
+          key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}
+          restore-keys: ${{ runner.os }}-mix-
+      - name: Install dependencies
+        run: mix deps.get
+      - name: Check Elixir formatting
+        run: mix format --check-formatted
+  elixir-credo:
+    name: Credo
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Copy config templates
+        working-directory: "config"
+        run: |
+          cp dev.local.exs.example dev.local.exs
+          cp test.local.exs.example test.local.exs
+      - name: Set up Elixir
+        uses: erlef/setup-elixir@v1
+        with:
+          elixir-version: "1.11.2" # Define the elixir version [required]
+          otp-version: "23.0" # Define the OTP version [required]
+          experimental-otp: true
+      - name: Restore deps cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            **/_build
+            **/deps
+          key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}
+          restore-keys: ${{ runner.os }}-mix-
+      - name: Install dependencies
+        run: mix deps.get
+      - name: Check Credo suggestions
+        run: mix credo
+  javascript-compilation:
+    name: JavaScript Compilation
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Copy config templates
+        working-directory: "config"
+        run: |
+          cp dev.local.exs.example dev.local.exs
+          cp test.local.exs.example test.local.exs
+      - name: Set up Elixir
+        uses: erlef/setup-elixir@v1
+        with:
+          elixir-version: "1.11.2" # Define the elixir version [required]
+          otp-version: "23.0" # Define the OTP version [required]
+          experimental-otp: true
+      - name: Restore deps cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            **/_build
+            **/deps
+          key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}
+          restore-keys: ${{ runner.os }}-mix-
+      - name: Install dependencies
+        run: mix deps.get
+      - name: Set up node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "15"
+      - name: Restore npm cache
+        uses: actions/cache@v2
+        with:
+          path: assets/node_modules
+          key: ${{ runner.os }}-npm-v2-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-npm-v2
+      - name: Install NodeJS deps
+        run: npm install
+        working-directory: ./assets
+      - run: npm run deploy
+        working-directory: ./assets
+  javascript-lint:
+    name: JavaScript Lint
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Copy config templates
+        working-directory: "config"
+        run: |
+          cp dev.local.exs.example dev.local.exs
+          cp test.local.exs.example test.local.exs
+      - name: Set up Elixir
+        uses: erlef/setup-elixir@v1
+        with:
+          elixir-version: "1.11.2" # Define the elixir version [required]
+          otp-version: "23.0" # Define the OTP version [required]
+          experimental-otp: true
+      - name: Restore deps cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            **/_build
+            **/deps
+          key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}
+          restore-keys: ${{ runner.os }}-mix-
+      - name: Install dependencies
+        run: mix deps.get
+      - name: Set up node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "15"
       - name: Restore npm cache
         uses: actions/cache@v2
         with:
           path: assets/node_modules
           key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
           restore-keys: ${{ runner.os }}-npm-
-      - name: Install dependencies
-        run: mix deps.get
-      - name: Check Elixir formatting
-        run: mix format --check-formatted
       - name: Install NodeJS deps
         run: npm install
         working-directory: ./assets
-      - name: Check JS and CSS formatting
-        run: npm run lint
+      - run: npm run lint
         working-directory: ./assets
-      - run: npm ci
-        working-directory: ./assets
-      - run: npm run deploy
-        working-directory: ./assets
-      - name: Run tests
-        run: mix test
