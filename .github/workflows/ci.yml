@@ -48,7 +48,7 @@ jobs:
           otp-version: "23.0" # Define the OTP version [required]
           experimental-otp: true
       - name: Restore deps cache
-        uses: actions/cache@v2.1.4
+        uses: actions/cache@v2.1.5
         with:
           path: |
             **/_build
@@ -76,7 +76,7 @@ jobs:
           otp-version: "23.0" # Define the OTP version [required]
           experimental-otp: true
       - name: Restore deps cache
-        uses: actions/cache@v2.1.4
+        uses: actions/cache@v2.1.5
         with:
           path: |
             **/_build
@@ -104,7 +104,7 @@ jobs:
           otp-version: "23.0" # Define the OTP version [required]
           experimental-otp: true
       - name: Restore deps cache
-        uses: actions/cache@v2.1.4
+        uses: actions/cache@v2.1.5
         with:
           path: |
             **/_build
@@ -132,7 +132,7 @@ jobs:
           otp-version: "23.0" # Define the OTP version [required]
           experimental-otp: true
       - name: Restore deps cache
-        uses: actions/cache@v2.1.4
+        uses: actions/cache@v2.1.5
         with:
           path: |
             **/_build
@@ -146,7 +146,7 @@ jobs:
         with:
           node-version: "15"
       - name: Restore npm cache
-        uses: actions/cache@v2.1.4
+        uses: actions/cache@v2.1.5
         with:
           path: assets/node_modules
           key: ${{ runner.os }}-npm-v2-${{ hashFiles('**/package-lock.json') }}
@@ -173,7 +173,7 @@ jobs:
           otp-version: "23.0" # Define the OTP version [required]
           experimental-otp: true
       - name: Restore deps cache
-        uses: actions/cache@v2.1.4
+        uses: actions/cache@v2.1.5
         with:
           path: |
             **/_build
@@ -187,7 +187,7 @@ jobs:
         with:
           node-version: "15"
       - name: Restore npm cache
-        uses: actions/cache@v2.1.4
+        uses: actions/cache@v2.1.5
         with:
           path: assets/node_modules
           key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
