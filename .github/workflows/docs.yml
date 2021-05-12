@@ -17,7 +17,7 @@ jobs:
           cp dev.local.exs.example dev.local.exs
           cp test.local.exs.example test.local.exs
       - name: Set up Elixir
-        uses: actions/setup-elixir@v1
+        uses: actions/setup-elixir@v1.5
         with:
           elixir-version: "1.11.2" # Define the elixir version [required]
           otp-version: "23.0" # Define the OTP version [required]
