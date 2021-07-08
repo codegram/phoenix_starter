@@ -54,7 +54,7 @@ jobs:
             **/_build
             **/deps
           key: ${{ runner.os }}-mix-${{ secrets.CACHE_VERSION }}-${{ hashFiles('**/mix.lock') }}
-          restore-keys: ${{ runner.os }}-mix-
+          restore-keys: ${{ runner.os }}-mix-${{ secrets.CACHE_VERSION }}
       - name: Install dependencies
         run: mix deps.get
       - name: Run tests
@@ -82,7 +82,7 @@ jobs:
             **/_build
             **/deps
           key: ${{ runner.os }}-mix-${{ secrets.CACHE_VERSION }}-${{ hashFiles('**/mix.lock') }}
-          restore-keys: ${{ runner.os }}-mix-
+          restore-keys: ${{ runner.os }}-mix-${{ secrets.CACHE_VERSION }}
       - name: Install dependencies
         run: mix deps.get
       - name: Check Elixir formatting
@@ -110,7 +110,7 @@ jobs:
             **/_build
             **/deps
           key: ${{ runner.os }}-mix-${{ secrets.CACHE_VERSION }}-${{ hashFiles('**/mix.lock') }}
-          restore-keys: ${{ runner.os }}-mix-
+          restore-keys: ${{ runner.os }}-mix-${{ secrets.CACHE_VERSION }}
       - name: Install dependencies
         run: mix deps.get
       - name: Check Credo suggestions
@@ -138,7 +138,7 @@ jobs:
             **/_build
             **/deps
           key: ${{ runner.os }}-mix-${{ secrets.CACHE_VERSION }}-${{ hashFiles('**/mix.lock') }}
-          restore-keys: ${{ runner.os }}-mix-
+          restore-keys: ${{ runner.os }}-mix-${{ secrets.CACHE_VERSION }}
       - name: Install dependencies
         run: mix deps.get
       - name: Set up node
@@ -150,7 +150,7 @@ jobs:
         with:
           path: assets/node_modules
           key: ${{ runner.os }}-npm-${{ secrets.CACHE_VERSION }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: ${{ runner.os }}-npm-
+          restore-keys: ${{ runner.os }}-npm-${{ secrets.CACHE_VERSION }}
       - name: Install NodeJS deps
         run: npm install
         working-directory: ./assets
@@ -179,7 +179,7 @@ jobs:
             **/_build
             **/deps
           key: ${{ runner.os }}-mix-${{ secrets.CACHE_VERSION }}-${{ hashFiles('**/mix.lock') }}
-          restore-keys: ${{ runner.os }}-mix-
+          restore-keys: ${{ runner.os }}-mix-${{ secrets.CACHE_VERSION }}
       - name: Install dependencies
         run: mix deps.get
       - name: Set up node
@@ -191,7 +191,7 @@ jobs:
         with:
           path: assets/node_modules
           key: ${{ runner.os }}-npm-${{ secrets.CACHE_VERSION }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: ${{ runner.os }}-npm-
+          restore-keys: ${{ runner.os }}-npm-${{ secrets.CACHE_VERSION }}
       - name: Install NodeJS deps
         run: npm install
         working-directory: ./assets
