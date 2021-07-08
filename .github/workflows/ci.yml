@@ -53,7 +53,7 @@ jobs:
           path: |
             **/_build
             **/deps
-          key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}
+          key: ${{ runner.os }}-mix-${{ secrets.CACHE_VERSION }}-${{ hashFiles('**/mix.lock') }}
           restore-keys: ${{ runner.os }}-mix-
       - name: Install dependencies
         run: mix deps.get
@@ -81,7 +81,7 @@ jobs:
           path: |
             **/_build
             **/deps
-          key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}
+          key: ${{ runner.os }}-mix-${{ secrets.CACHE_VERSION }}-${{ hashFiles('**/mix.lock') }}
           restore-keys: ${{ runner.os }}-mix-
       - name: Install dependencies
         run: mix deps.get
@@ -109,7 +109,7 @@ jobs:
           path: |
             **/_build
             **/deps
-          key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}
+          key: ${{ runner.os }}-mix-${{ secrets.CACHE_VERSION }}-${{ hashFiles('**/mix.lock') }}
           restore-keys: ${{ runner.os }}-mix-
       - name: Install dependencies
         run: mix deps.get
@@ -137,7 +137,7 @@ jobs:
           path: |
             **/_build
             **/deps
-          key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}
+          key: ${{ runner.os }}-mix-${{ secrets.CACHE_VERSION }}-${{ hashFiles('**/mix.lock') }}
           restore-keys: ${{ runner.os }}-mix-
       - name: Install dependencies
         run: mix deps.get
@@ -149,8 +149,8 @@ jobs:
         uses: actions/cache@v2.1.6
         with:
           path: assets/node_modules
-          key: ${{ runner.os }}-npm-v2-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: ${{ runner.os }}-npm-v2
+          key: ${{ runner.os }}-npm-${{ secrets.CACHE_VERSION }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-npm-
       - name: Install NodeJS deps
         run: npm install
         working-directory: ./assets
@@ -178,7 +178,7 @@ jobs:
           path: |
             **/_build
             **/deps
-          key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}
+          key: ${{ runner.os }}-mix-${{ secrets.CACHE_VERSION }}-${{ hashFiles('**/mix.lock') }}
           restore-keys: ${{ runner.os }}-mix-
       - name: Install dependencies
         run: mix deps.get
@@ -190,7 +190,7 @@ jobs:
         uses: actions/cache@v2.1.6
         with:
           path: assets/node_modules
-          key: ${{ runner.os }}-npm-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.os }}-npm-${{ secrets.CACHE_VERSION }}-${{ hashFiles('**/package-lock.json') }}
           restore-keys: ${{ runner.os }}-npm-
       - name: Install NodeJS deps
         run: npm install
