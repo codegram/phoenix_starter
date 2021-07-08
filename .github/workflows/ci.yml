@@ -35,7 +35,7 @@ jobs:
       - name: Install system dependencies
         run: |
           sudo apt-get install -y imagemagick
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v2.3.4
       - name: Copy config templates
         working-directory: "config"
         run: |
@@ -63,7 +63,7 @@ jobs:
     name: Elixir Formatting
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v2.3.4
       - name: Copy config templates
         working-directory: "config"
         run: |
@@ -91,7 +91,7 @@ jobs:
     name: Credo
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v2.3.4
       - name: Copy config templates
         working-directory: "config"
         run: |
@@ -119,7 +119,7 @@ jobs:
     name: JavaScript Compilation
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v2.3.4
       - name: Copy config templates
         working-directory: "config"
         run: |
@@ -160,7 +160,7 @@ jobs:
     name: JavaScript Lint
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v2.3.4
       - name: Copy config templates
         working-directory: "config"
         run: |
