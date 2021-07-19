@@ -42,7 +42,7 @@ jobs:
           cp dev.local.exs.example dev.local.exs
           cp test.local.exs.example test.local.exs
       - name: Set up Elixir
-        uses: erlef/setup-elixir@v1.7
+        uses: erlef/setup-elixir@v1.8.2
         with:
           elixir-version: "1.11.2" # Define the elixir version [required]
           otp-version: "23.0" # Define the OTP version [required]
@@ -70,7 +70,7 @@ jobs:
           cp dev.local.exs.example dev.local.exs
           cp test.local.exs.example test.local.exs
       - name: Set up Elixir
-        uses: erlef/setup-elixir@v1.7
+        uses: erlef/setup-elixir@v1.8.2
         with:
           elixir-version: "1.11.2" # Define the elixir version [required]
           otp-version: "23.0" # Define the OTP version [required]
@@ -98,7 +98,7 @@ jobs:
           cp dev.local.exs.example dev.local.exs
           cp test.local.exs.example test.local.exs
       - name: Set up Elixir
-        uses: erlef/setup-elixir@v1.7
+        uses: erlef/setup-elixir@v1.8.2
         with:
           elixir-version: "1.11.2" # Define the elixir version [required]
           otp-version: "23.0" # Define the OTP version [required]
@@ -126,7 +126,7 @@ jobs:
           cp dev.local.exs.example dev.local.exs
           cp test.local.exs.example test.local.exs
       - name: Set up Elixir
-        uses: erlef/setup-elixir@v1.7
+        uses: erlef/setup-elixir@v1.8.2
         with:
           elixir-version: "1.11.2" # Define the elixir version [required]
           otp-version: "23.0" # Define the OTP version [required]
@@ -167,7 +167,7 @@ jobs:
           cp dev.local.exs.example dev.local.exs
           cp test.local.exs.example test.local.exs
       - name: Set up Elixir
-        uses: erlef/setup-elixir@v1.7
+        uses: erlef/setup-elixir@v1.8.2
         with:
           elixir-version: "1.11.2" # Define the elixir version [required]
           otp-version: "23.0" # Define the OTP version [required]
