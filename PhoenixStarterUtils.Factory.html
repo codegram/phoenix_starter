@@ -7,7 +7,7 @@
     <meta name="generator" content="ExDoc v0.25.0">
     <meta name="project" content="phoenix_starter v0.1.0">
 
-    <title>PhoenixStarterWeb.Router.Helpers — phoenix_starter v0.1.0</title>
+    <title>PhoenixStarterUtils.Factory — phoenix_starter v0.1.0</title>
     <link rel="stylesheet" href="dist/elixir-a172fe91e725dcb259e2.css" />
 
     <script src="dist/sidebar_items-d9a4314525.js"></script>
@@ -80,13 +80,13 @@ phoenix_starter
     <div id="content" class="content-inner">
 
       <h1>
-PhoenixStarterWeb.Router.Helpers <small class="app-vsn">(phoenix_starter v0.1.0)</small>
+PhoenixStarterUtils.Factory <small class="app-vsn">(phoenix_starter v0.1.0)</small>
 
       </h1>
 
 
         <section id="moduledoc">
-<p>Module with named helpers generated from PhoenixStarterWeb.Router.</p>
+<p>This module contains all the existing factories.</p>
         </section>
 
 
@@ -105,131 +105,144 @@ PhoenixStarterWeb.Router.Helpers <small class="app-vsn">(phoenix_starter v0.1.0)
     </h2>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#live_dashboard_path/2">live_dashboard_path(conn_or_endpoint, action)</a>
+    <a href="#build/2">build(factory_name, attrs \\ %{})</a>
 
   </div>
 
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#live_dashboard_path/3">live_dashboard_path(conn_or_endpoint, action, params)</a>
+    <a href="#build_list/3">build_list(number_of_records, factory_name, attrs \\ %{})</a>
 
   </div>
 
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#live_dashboard_path/4">live_dashboard_path(conn_or_endpoint, action, page, params)</a>
+    <a href="#build_pair/2">build_pair(factory_name, attrs \\ %{})</a>
 
   </div>
 
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#live_dashboard_path/5">live_dashboard_path(conn_or_endpoint, action, node, page, params)</a>
+    <a href="#create/1">create(_)</a>
 
   </div>
 
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#live_dashboard_url/2">live_dashboard_url(conn_or_endpoint, action)</a>
+    <a href="#create/2">create(_, _)</a>
 
   </div>
 
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#live_dashboard_url/3">live_dashboard_url(conn_or_endpoint, action, params)</a>
+    <a href="#create_list/3">create_list(_, _, _)</a>
 
   </div>
 
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#live_dashboard_url/4">live_dashboard_url(conn_or_endpoint, action, page, params)</a>
+    <a href="#create_pair/2">create_pair(_, _)</a>
 
   </div>
 
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#live_dashboard_url/5">live_dashboard_url(conn_or_endpoint, action, node, page, params)</a>
+    <a href="#factory/1">factory(factory_name)</a>
+
+  </div>
+
+    <div class="summary-synopsis"><p>Raises a helpful error if no factory is defined.</p></div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#insert/1">insert(already_built_record)</a>
 
   </div>
 
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#page_path/2">page_path(conn_or_endpoint, action)</a>
+    <a href="#insert/2">insert(already_built_record, function_opts)</a>
 
   </div>
 
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#page_path/3">page_path(conn_or_endpoint, action, params)</a>
+    <a href="#insert/3">insert(factory_name, attrs, opts)</a>
 
   </div>
 
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#page_url/2">page_url(conn_or_endpoint, action)</a>
+    <a href="#insert_list/3">insert_list(number_of_records, factory_name, attrs \\ %{})</a>
 
   </div>
 
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#page_url/3">page_url(conn_or_endpoint, action, params)</a>
+    <a href="#insert_list/4">insert_list(number_of_records, factory_name, attrs, opts)</a>
 
   </div>
 
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#path/2">path(data, path)</a>
+    <a href="#insert_pair/2">insert_pair(factory_name, attrs \\ %{})</a>
 
   </div>
-
-    <div class="summary-synopsis"><p>Generates the path information including any necessary prefix.</p></div>
 
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#static_integrity/2">static_integrity(endpoint, path)</a>
+    <a href="#insert_pair/3">insert_pair(factory_name, attrs, opts)</a>
 
   </div>
-
-    <div class="summary-synopsis"><p>Generates an integrity hash to a static asset given its file path.</p></div>
 
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#static_path/2">static_path(conn, path)</a>
+    <a href="#params_for/2">params_for(factory_name, attrs \\ %{})</a>
 
   </div>
-
-    <div class="summary-synopsis"><p>Generates path to a static asset given its file path.</p></div>
 
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#static_url/2">static_url(conn, path)</a>
+    <a href="#params_with_assocs/2">params_with_assocs(factory_name, attrs \\ %{})</a>
 
   </div>
-
-    <div class="summary-synopsis"><p>Generates url to a static asset given its file path.</p></div>
 
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#url/1">url(data)</a>
+    <a href="#string_params_for/2">string_params_for(factory_name, attrs \\ %{})</a>
 
   </div>
 
-    <div class="summary-synopsis"><p>Generates the connection/endpoint base URL without any path information.</p></div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#string_params_with_assocs/2">string_params_with_assocs(factory_name, attrs \\ %{})</a>
+
+  </div>
+
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#user_factory/0">user_factory()</a>
+
+  </div>
 
 </div>
 
@@ -247,14 +260,16 @@ PhoenixStarterWeb.Router.Helpers <small class="app-vsn">(phoenix_starter v0.1.0)
 Functions
           </h1>
           <div class="functions-list">
-<section class="detail" id="live_dashboard_path/2">
+<section class="detail" id="build/2">
+
+    <span id="build/1"></span>
 
   <div class="detail-header">
-    <a href="#live_dashboard_path/2" class="detail-link" title="Link to this function">
+    <a href="#build/2" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature">live_dashboard_path(conn_or_endpoint, action)</h1>
+    <h1 class="signature">build(factory_name, attrs \\ %{})</h1>
 
 
   </div>
@@ -264,14 +279,16 @@ Functions
 
   </section>
 </section>
-<section class="detail" id="live_dashboard_path/3">
+<section class="detail" id="build_list/3">
+
+    <span id="build_list/2"></span>
 
   <div class="detail-header">
-    <a href="#live_dashboard_path/3" class="detail-link" title="Link to this function">
+    <a href="#build_list/3" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature">live_dashboard_path(conn_or_endpoint, action, params)</h1>
+    <h1 class="signature">build_list(number_of_records, factory_name, attrs \\ %{})</h1>
 
 
   </div>
@@ -281,14 +298,16 @@ Functions
 
   </section>
 </section>
-<section class="detail" id="live_dashboard_path/4">
+<section class="detail" id="build_pair/2">
+
+    <span id="build_pair/1"></span>
 
   <div class="detail-header">
-    <a href="#live_dashboard_path/4" class="detail-link" title="Link to this function">
+    <a href="#build_pair/2" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature">live_dashboard_path(conn_or_endpoint, action, page, params)</h1>
+    <h1 class="signature">build_pair(factory_name, attrs \\ %{})</h1>
 
 
   </div>
@@ -298,14 +317,134 @@ Functions
 
   </section>
 </section>
-<section class="detail" id="live_dashboard_path/5">
+<section class="detail" id="create/1">
 
   <div class="detail-header">
-    <a href="#live_dashboard_path/5" class="detail-link" title="Link to this function">
+    <a href="#create/1" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature">live_dashboard_path(conn_or_endpoint, action, node, page, params)</h1>
+    <h1 class="signature">create(_)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>create(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">any</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">no_return</a>()</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="create/2">
+
+  <div class="detail-header">
+    <a href="#create/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">create(_, _)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>create(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">any</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">any</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">no_return</a>()</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="create_list/3">
+
+  <div class="detail-header">
+    <a href="#create_list/3" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">create_list(_, _, _)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>create_list(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">any</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">any</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">any</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">no_return</a>()</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="create_pair/2">
+
+  <div class="detail-header">
+    <a href="#create_pair/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">create_pair(_, _)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>create_pair(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">any</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">any</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">no_return</a>()</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="factory/1">
+
+  <div class="detail-header">
+    <a href="#factory/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">factory(factory_name)</h1>
+
+
+  </div>
+
+  <section class="docstring">
+
+      <h2>Specs</h2>
+      <div class="specs">
+
+          <pre>factory(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">any</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">no_return</a>()</pre>
+
+      </div>
+
+<p>Raises a helpful error if no factory is defined.</p>
+  </section>
+</section>
+<section class="detail" id="insert/1">
+
+  <div class="detail-header">
+    <a href="#insert/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">insert(already_built_record)</h1>
 
 
   </div>
@@ -315,14 +454,14 @@ Functions
 
   </section>
 </section>
-<section class="detail" id="live_dashboard_url/2">
+<section class="detail" id="insert/2">
 
   <div class="detail-header">
-    <a href="#live_dashboard_url/2" class="detail-link" title="Link to this function">
+    <a href="#insert/2" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature">live_dashboard_url(conn_or_endpoint, action)</h1>
+    <h1 class="signature">insert(already_built_record, function_opts)</h1>
 
 
   </div>
@@ -332,14 +471,14 @@ Functions
 
   </section>
 </section>
-<section class="detail" id="live_dashboard_url/3">
+<section class="detail" id="insert/3">
 
   <div class="detail-header">
-    <a href="#live_dashboard_url/3" class="detail-link" title="Link to this function">
+    <a href="#insert/3" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature">live_dashboard_url(conn_or_endpoint, action, params)</h1>
+    <h1 class="signature">insert(factory_name, attrs, opts)</h1>
 
 
   </div>
@@ -349,14 +488,16 @@ Functions
 
   </section>
 </section>
-<section class="detail" id="live_dashboard_url/4">
+<section class="detail" id="insert_list/3">
+
+    <span id="insert_list/2"></span>
 
   <div class="detail-header">
-    <a href="#live_dashboard_url/4" class="detail-link" title="Link to this function">
+    <a href="#insert_list/3" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature">live_dashboard_url(conn_or_endpoint, action, page, params)</h1>
+    <h1 class="signature">insert_list(number_of_records, factory_name, attrs \\ %{})</h1>
 
 
   </div>
@@ -366,14 +507,14 @@ Functions
 
   </section>
 </section>
-<section class="detail" id="live_dashboard_url/5">
+<section class="detail" id="insert_list/4">
 
   <div class="detail-header">
-    <a href="#live_dashboard_url/5" class="detail-link" title="Link to this function">
+    <a href="#insert_list/4" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature">live_dashboard_url(conn_or_endpoint, action, node, page, params)</h1>
+    <h1 class="signature">insert_list(number_of_records, factory_name, attrs, opts)</h1>
 
 
   </div>
@@ -383,14 +524,16 @@ Functions
 
   </section>
 </section>
-<section class="detail" id="page_path/2">
+<section class="detail" id="insert_pair/2">
+
+    <span id="insert_pair/1"></span>
 
   <div class="detail-header">
-    <a href="#page_path/2" class="detail-link" title="Link to this function">
+    <a href="#insert_pair/2" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature">page_path(conn_or_endpoint, action)</h1>
+    <h1 class="signature">insert_pair(factory_name, attrs \\ %{})</h1>
 
 
   </div>
@@ -400,14 +543,14 @@ Functions
 
   </section>
 </section>
-<section class="detail" id="page_path/3">
+<section class="detail" id="insert_pair/3">
 
   <div class="detail-header">
-    <a href="#page_path/3" class="detail-link" title="Link to this function">
+    <a href="#insert_pair/3" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature">page_path(conn_or_endpoint, action, params)</h1>
+    <h1 class="signature">insert_pair(factory_name, attrs, opts)</h1>
 
 
   </div>
@@ -417,14 +560,16 @@ Functions
 
   </section>
 </section>
-<section class="detail" id="page_url/2">
+<section class="detail" id="params_for/2">
+
+    <span id="params_for/1"></span>
 
   <div class="detail-header">
-    <a href="#page_url/2" class="detail-link" title="Link to this function">
+    <a href="#params_for/2" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature">page_url(conn_or_endpoint, action)</h1>
+    <h1 class="signature">params_for(factory_name, attrs \\ %{})</h1>
 
 
   </div>
@@ -434,14 +579,16 @@ Functions
 
   </section>
 </section>
-<section class="detail" id="page_url/3">
+<section class="detail" id="params_with_assocs/2">
+
+    <span id="params_with_assocs/1"></span>
 
   <div class="detail-header">
-    <a href="#page_url/3" class="detail-link" title="Link to this function">
+    <a href="#params_with_assocs/2" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature">page_url(conn_or_endpoint, action, params)</h1>
+    <h1 class="signature">params_with_assocs(factory_name, attrs \\ %{})</h1>
 
 
   </div>
@@ -451,89 +598,59 @@ Functions
 
   </section>
 </section>
-<section class="detail" id="path/2">
+<section class="detail" id="string_params_for/2">
+
+    <span id="string_params_for/1"></span>
 
   <div class="detail-header">
-    <a href="#path/2" class="detail-link" title="Link to this function">
+    <a href="#string_params_for/2" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature">path(data, path)</h1>
+    <h1 class="signature">string_params_for(factory_name, attrs \\ %{})</h1>
 
 
   </div>
 
   <section class="docstring">
 
-<p>Generates the path information including any necessary prefix.</p>
+
   </section>
 </section>
-<section class="detail" id="static_integrity/2">
+<section class="detail" id="string_params_with_assocs/2">
+
+    <span id="string_params_with_assocs/1"></span>
 
   <div class="detail-header">
-    <a href="#static_integrity/2" class="detail-link" title="Link to this function">
+    <a href="#string_params_with_assocs/2" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature">static_integrity(endpoint, path)</h1>
+    <h1 class="signature">string_params_with_assocs(factory_name, attrs \\ %{})</h1>
 
 
   </div>
 
   <section class="docstring">
 
-<p>Generates an integrity hash to a static asset given its file path.</p>
+
   </section>
 </section>
-<section class="detail" id="static_path/2">
+<section class="detail" id="user_factory/0">
 
   <div class="detail-header">
-    <a href="#static_path/2" class="detail-link" title="Link to this function">
+    <a href="#user_factory/0" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature">static_path(conn, path)</h1>
+    <h1 class="signature">user_factory()</h1>
 
 
   </div>
 
   <section class="docstring">
 
-<p>Generates path to a static asset given its file path.</p>
-  </section>
-</section>
-<section class="detail" id="static_url/2">
 
-  <div class="detail-header">
-    <a href="#static_url/2" class="detail-link" title="Link to this function">
-      <span class="icon-link" aria-hidden="true"></span>
-      <span class="sr-only">Link to this function</span>
-    </a>
-    <h1 class="signature">static_url(conn, path)</h1>
-
-
-  </div>
-
-  <section class="docstring">
-
-<p>Generates url to a static asset given its file path.</p>
-  </section>
-</section>
-<section class="detail" id="url/1">
-
-  <div class="detail-header">
-    <a href="#url/1" class="detail-link" title="Link to this function">
-      <span class="icon-link" aria-hidden="true"></span>
-      <span class="sr-only">Link to this function</span>
-    </a>
-    <h1 class="signature">url(data)</h1>
-
-
-  </div>
-
-  <section class="docstring">
-
-<p>Generates the connection/endpoint base URL without any path information.</p>
   </section>
 </section>
 

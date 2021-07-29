@@ -1,12 +1,16 @@
 404.html
 PhoenixStarter.Repo.html
 PhoenixStarter.html
+PhoenixStarterUtils.DatabaseCleaner.html
+PhoenixStarterUtils.Factory.html
+PhoenixStarterUtils.html
 PhoenixStarterWeb.Endpoint.html
 PhoenixStarterWeb.ErrorHelpers.html
 PhoenixStarterWeb.ErrorView.html
 PhoenixStarterWeb.Gettext.html
 PhoenixStarterWeb.LayoutView.html
 PhoenixStarterWeb.PageLive.html
+PhoenixStarterWeb.Plug.TestEndToEnd.html
 PhoenixStarterWeb.Router.Helpers.html
 PhoenixStarterWeb.Router.html
 PhoenixStarterWeb.Telemetry.html
@@ -19,7 +23,7 @@ dist/html/fonts/icomoon.eot
 dist/html/fonts/icomoon.svg
 dist/html/fonts/icomoon.ttf
 dist/html/fonts/icomoon.woff
-dist/search_items-3cc2a7013d.js
-dist/sidebar_items-c55cd5e60b.js
+dist/search_items-1a84ff584f.js
+dist/sidebar_items-d9a4314525.js
 index.html
 search.html

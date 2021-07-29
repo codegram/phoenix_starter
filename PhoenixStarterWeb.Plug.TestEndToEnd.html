@@ -7,7 +7,7 @@
     <meta name="generator" content="ExDoc v0.25.0">
     <meta name="project" content="phoenix_starter v0.1.0">
 
-    <title>PhoenixStarterWeb.LayoutView — phoenix_starter v0.1.0</title>
+    <title>PhoenixStarterWeb.Plug.TestEndToEnd — phoenix_starter v0.1.0</title>
     <link rel="stylesheet" href="dist/elixir-a172fe91e725dcb259e2.css" />
 
     <script src="dist/sidebar_items-d9a4314525.js"></script>
@@ -80,7 +80,7 @@ phoenix_starter
     <div id="content" class="content-inner">
 
       <h1>
-PhoenixStarterWeb.LayoutView <small class="app-vsn">(phoenix_starter v0.1.0)</small>
+PhoenixStarterWeb.Plug.TestEndToEnd <small class="app-vsn">(phoenix_starter v0.1.0)</small>
 
       </h1>
 
@@ -101,31 +101,20 @@ PhoenixStarterWeb.LayoutView <small class="app-vsn">(phoenix_starter v0.1.0)</sm
     </h2>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#__resource__/0">__resource__()</a>
+    <a href="#call/2">call(conn, opts)</a>
 
   </div>
 
-    <div class="summary-synopsis"><p>The resource name, as an atom, for this view</p></div>
+    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/plug/1.12.0/Plug.html#c:call/2"><code class="inline">Plug.call/2</code></a>.</p></div>
 
 </div>
 <div class="summary-row">
   <div class="summary-signature">
-    <a href="#render/2">render(template, assigns \\ %{})</a>
+    <a href="#init/1">init(opts)</a>
 
   </div>
 
-    <div class="summary-synopsis"><p>Renders the given template locally.</p></div>
-
-</div>
-<div class="summary-row">
-  <div class="summary-signature">
-    <a href="#template_not_found/2">template_not_found(template, assigns)</a>
-
-  </div>
-
-    <div class="summary-synopsis"><p>Callback invoked when no template is found.
-By default it raises but can be customized
-to render a particular template.</p></div>
+    <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/plug/1.12.0/Plug.html#c:init/1"><code class="inline">Plug.init/1</code></a>.</p></div>
 
 </div>
 
@@ -143,66 +132,38 @@ to render a particular template.</p></div>
 Functions
           </h1>
           <div class="functions-list">
-<section class="detail" id="__resource__/0">
+<section class="detail" id="call/2">
 
   <div class="detail-header">
-    <a href="#__resource__/0" class="detail-link" title="Link to this function">
+    <a href="#call/2" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature">__resource__()</h1>
+    <h1 class="signature">call(conn, opts)</h1>
 
 
   </div>
 
   <section class="docstring">
 
-<p>The resource name, as an atom, for this view</p>
+<p>Callback implementation for <a href="https://hexdocs.pm/plug/1.12.0/Plug.html#c:call/2"><code class="inline">Plug.call/2</code></a>.</p>
   </section>
 </section>
-<section class="detail" id="render/2">
-
-    <span id="render/1"></span>
+<section class="detail" id="init/1">
 
   <div class="detail-header">
-    <a href="#render/2" class="detail-link" title="Link to this function">
+    <a href="#init/1" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <h1 class="signature">render(template, assigns \\ %{})</h1>
+    <h1 class="signature">init(opts)</h1>
 
 
   </div>
 
   <section class="docstring">
 
-<p>Renders the given template locally.</p>
-  </section>
-</section>
-<section class="detail" id="template_not_found/2">
-
-  <div class="detail-header">
-    <a href="#template_not_found/2" class="detail-link" title="Link to this function">
-      <span class="icon-link" aria-hidden="true"></span>
-      <span class="sr-only">Link to this function</span>
-    </a>
-    <h1 class="signature">template_not_found(template, assigns)</h1>
-
-
-  </div>
-
-  <section class="docstring">
-
-      <h2>Specs</h2>
-      <div class="specs">
-
-          <pre>template_not_found(<a href="https://hexdocs.pm/phoenix/1.5.9/Phoenix.Template.html#t:name/0">Phoenix.Template.name</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">map</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">no_return</a>()</pre>
-
-      </div>
-
-<p>Callback invoked when no template is found.
-By default it raises but can be customized
-to render a particular template.</p>
+<p>Callback implementation for <a href="https://hexdocs.pm/plug/1.12.0/Plug.html#c:init/1"><code class="inline">Plug.init/1</code></a>.</p>
   </section>
 </section>
 
