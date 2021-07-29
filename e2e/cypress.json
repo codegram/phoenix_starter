@@ -1,0 +1,7 @@
+{
+  "baseUrl": "http://localhost:4002",
+  "video": false,
+  "retries": {
+    "runMode": 3
+  }
+}
