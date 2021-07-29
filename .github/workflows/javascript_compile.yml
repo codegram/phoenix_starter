@@ -1,0 +1,52 @@
+name: JS compile
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+env:
+  MIX_ENV: test
+
+jobs:
+  javascript-compilation:
+    name: JavaScript Compilation
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2.3.4
+      - name: Copy config templates
+        working-directory: "config"
+        run: |
+          cp dev.local.exs.example dev.local.exs
+          cp test.local.exs.example test.local.exs
+      - name: Set up Elixir
+        uses: erlef/setup-elixir@v1.8.3
+        with:
+          elixir-version: "1.11.2" # Define the elixir version [required]
+          otp-version: "23.0" # Define the OTP version [required]
+          experimental-otp: true
+      - name: Restore deps cache
+        uses: actions/cache@v2.1.6
+        with:
+          path: |
+            **/_build
+            **/deps
+          key: ${{ runner.os }}-mix-${{ secrets.CACHE_VERSION }}-${{ hashFiles('**/mix.lock') }}
+          restore-keys: ${{ runner.os }}-mix-${{ secrets.CACHE_VERSION }}
+      - name: Install dependencies
+        run: mix deps.get
+      - name: Set up node
+        uses: actions/setup-node@v2.3.0
+        with:
+          node-version: "15"
+      - name: Restore npm cache
+        uses: actions/cache@v2.1.6
+        with:
+          path: assets/node_modules
+          key: ${{ runner.os }}-npm-${{ secrets.CACHE_VERSION }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-npm-${{ secrets.CACHE_VERSION }}
+      - name: Install NodeJS deps
+        run: npm install
+        working-directory: ./assets
+      - run: npm run deploy
+        working-directory: ./assets

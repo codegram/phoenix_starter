@@ -1,0 +1,39 @@
+name: Elixir formatting
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+env:
+  MIX_ENV: test
+
+jobs:
+  elixir-formatting:
+    name: Elixir Formatting
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2.3.4
+      - name: Copy config templates
+        working-directory: "config"
+        run: |
+          cp dev.local.exs.example dev.local.exs
+          cp test.local.exs.example test.local.exs
+      - name: Set up Elixir
+        uses: erlef/setup-elixir@v1.8.3
+        with:
+          elixir-version: "1.11.2" # Define the elixir version [required]
+          otp-version: "23.0" # Define the OTP version [required]
+          experimental-otp: true
+      - name: Restore deps cache
+        uses: actions/cache@v2.1.6
+        with:
+          path: |
+            **/_build
+            **/deps
+          key: ${{ runner.os }}-mix-${{ secrets.CACHE_VERSION }}-${{ hashFiles('**/mix.lock') }}
+          restore-keys: ${{ runner.os }}-mix-${{ secrets.CACHE_VERSION }}
+      - name: Install dependencies
+        run: mix deps.get
+      - name: Check Elixir formatting
+        run: mix format --check-formatted
