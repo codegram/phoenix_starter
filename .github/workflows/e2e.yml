@@ -43,8 +43,6 @@ jobs:
       - name: Copy config templates
         working-directory: "config"
         run: |
-          cp dev.local.exs.example dev.local.exs
-          cp test.local.exs.example test.local.exs
           cp e2e.local.exs.example e2e.local.exs
       - name: Set up Elixir
         uses: erlef/setup-elixir@v1
