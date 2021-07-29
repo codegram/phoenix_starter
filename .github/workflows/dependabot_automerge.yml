@@ -1,0 +1,15 @@
+name: Dependabot automerge
+
+on:
+  pull_request_target:
+
+jobs:
+  auto-merge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.4.0
+      - uses: ahmadnassri/action-dependabot-auto-merge@v2
+        with:
+          target: minor
+          command: "squash and merge"
+          github-token: ${{ secrets.DEPENDABOT_AUTOMERGE_TOKEN }}
