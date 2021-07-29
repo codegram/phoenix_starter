@@ -13,9 +13,6 @@ jobs:
     name: E2E Tests
     timeout-minutes: 30
     runs-on: ubuntu-20.04
-    strategy:
-      matrix:
-        machine: [0, 1]
     env:
       DATABASE_HOST: localhost
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -96,10 +93,7 @@ jobs:
           mix phx.server &
           cd e2e
           npx wait-on -d 60000 -i 5000 --httpTimeout 300000 http://localhost:4002
-          count=$(ls cypress/integration/*.spec.ts | wc -l | tr -d ' ')
-          half=$(expr $count / 2)
-          list_of_files=$(ls cypress/integration/*.spec.ts | sed -n "$(expr 1 + $half \* ${{ matrix.machine }}), $(expr $half \* ${{ matrix.machine }} + $half)p" | xargs)
-          npx cypress run --browser chrome --headless --spec $list_of_files
+          npx cypress run --browser chrome --headless
       - name: Upload artifacts (screenshots)
         if: ${{ always() }}
         uses: actions/upload-artifact@v2
