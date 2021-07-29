@@ -12,6 +12,7 @@ jobs:
   elixir-tests:
     name: Elixir Tests
     runs-on: ubuntu-20.04
+    timeout-minutes: 30
     env:
       DATABASE_HOST: localhost
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

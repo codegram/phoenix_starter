@@ -12,6 +12,7 @@ jobs:
   javascript-lint:
     name: JavaScript Lint
     runs-on: ubuntu-20.04
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v2.3.4
       - name: Copy config templates
