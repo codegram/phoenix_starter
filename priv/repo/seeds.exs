@@ -1,11 +1,19 @@
-# Script for populating the database. You can run it as:
-#
-#     mix run priv/repo/seeds.exs
-#
-# Inside the script, you can read and write to any of your
-# repositories directly:
-#
-#     PhoenixStarter.Repo.insert!(%PhoenixStarter.SomeSchema{})
-#
-# We recommend using the bang functions (`insert!`, `update!`
-# and so on) as they will fail if something goes wrong.
+defmodule PhoenixStarter.DatabaseSeeder do
+  def delete_data do
+    PhoenixStarterUtils.delete_data(are_you_sure: :yes)
+  end
+
+  def run do
+    delete_data
+    seed_users()
+  end
+
+  def seed_users() do
+    nil
+  end
+end
+
+if System.get_env("HEROKU_BRANCH") !== "master" do
+  {:ok, _} = Application.ensure_all_started(:ranch)
+  PhoenixStarter.DatabaseSeeder.run()
+end
