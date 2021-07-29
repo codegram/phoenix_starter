@@ -24,6 +24,7 @@ defmodule PhoenixStarter.DataCase do
       import Ecto.Changeset
       import Ecto.Query
       import PhoenixStarter.DataCase
+      import PhoenixStarterUtils.Factory
     end
   end
 
