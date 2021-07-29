@@ -12,10 +12,6 @@ watchers =
         "--watch",
         "--watch-options-stdin",
         cd: Path.expand("../assets", __DIR__)
-      ],
-      node: [
-        "start-dev-server.js",
-        cd: Path.expand("../frontend", __DIR__)
       ]
     ]
   end
@@ -26,8 +22,8 @@ watchers =
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with webpack to recompile .js and .css sources.
-config :politic_all, PhoenixStarter.Endpoint,
-  http: [port: System.get_env("PORT") || 4002],
+config :phoenix_starter, PhoenixStarterWeb.Endpoint,
+  http: [port: 4002],
   server: true,
   watchers: watchers
 
@@ -68,9 +64,6 @@ config :phoenix, :plug_init_mode, :runtime
 if System.get_env("CI") do
   config :logger, level: :warn
 end
-
-config :waffle,
-  asset_host: "/uploads"
 
 config :phoenix_starter, PhoenixStarter.Router,
   end_to_end: true,
