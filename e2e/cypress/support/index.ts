@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 // ***********************************************************
 // This example support/index.ts is processed and
 // loaded automatically before your test files.
@@ -16,5 +18,24 @@
 import "@testing-library/cypress/add-commands";
 import "cypress-file-upload";
 
-// Import commands.ts
-import "./commands";
+import "./commands/backend";
+import "./commands/factories";
+
+declare global {
+  namespace Cypress {
+    interface Chainable {
+      // Backend
+      checkinDb(): Chainable;
+      factoryDb(schema: any, attrs: any): Chainable;
+
+      // Factories
+      createUser(userRef?: string, userData?: any): Chainable;
+      getResource(ref: string): Chainable;
+    }
+  }
+}
+
+beforeEach(() => {
+  // Before each test, we reset the DB
+  cy.checkinDb();
+});
