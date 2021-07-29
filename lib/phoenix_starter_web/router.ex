@@ -40,4 +40,15 @@ defmodule PhoenixStarterWeb.Router do
       live_dashboard "/dashboard", metrics: PhoenixStarterWeb.Telemetry
     end
   end
+
+  if Mix.env() == :e2e do
+    pipeline :end_to_end do
+      plug(:fetch_session)
+    end
+
+    scope "/" do
+      pipe_through([:end_to_end])
+      forward("/end-to-end", PhoenixStarterWeb.Plug.TestEndToEnd)
+    end
+  end
 end
