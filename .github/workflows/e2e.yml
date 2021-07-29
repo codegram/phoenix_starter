@@ -1,0 +1,114 @@
+name: E2E tests
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+
+env:
+  MIX_ENV: e2e
+
+jobs:
+  e2e-tests:
+    name: E2E Tests
+    timeout-minutes: 30
+    runs-on: ubuntu-20.04
+    strategy:
+      matrix:
+        machine: [0, 1]
+    env:
+      DATABASE_HOST: localhost
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    services:
+      postgres:
+        image: postgres:13-3.1
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: database_test
+          PGDATA: /var/lib/postgresql/data/pgdata
+        ports:
+          - "5432:5432"
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    steps:
+      - uses: rokroskar/workflow-run-cleanup-action@v0.3.3
+        if: "github.ref != 'refs/heads/master'"
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+      - name: Install system dependencies
+        run: |
+          sudo apt-get install -y imagemagick
+      - uses: actions/checkout@v2
+      - name: Copy config templates
+        working-directory: "config"
+        run: |
+          cp dev.local.exs.example dev.local.exs
+          cp test.local.exs.example test.local.exs
+          cp e2e.local.exs.example e2e.local.exs
+      - name: Set up Elixir
+        uses: erlef/setup-elixir@v1
+        with:
+          elixir-version: "1.12.2" # Define the elixir version [required]
+          otp-version: "24.0" # Define the OTP version [required]
+      - name: Restore deps cache
+        uses: actions/cache@v2
+        with:
+          path: deps
+          key: ${{ runner.os }}-deps-v1-${{ hashFiles('**/mix.lock') }}
+          restore-keys: ${{ runner.os }}-deps-v1-
+      - name: Install dependencies
+        run: mix deps.get
+      - name: Set up node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "15"
+      - name: Restore npm cache
+        uses: actions/cache@v2
+        with:
+          path: assets/node_modules
+          key: ${{ runner.os }}-npm-v2-${{ hashFiles('assets/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-npm-v2
+      - name: Install NodeJS deps
+        run: npm ci
+        working-directory: ./assets
+      - run: npm run deploy
+        working-directory: ./assets
+      - name: Restore npm cache
+        uses: actions/cache@v2
+        with:
+          path: e2e/node_modules
+          key: ${{ runner.os }}-npm-v2-${{ hashFiles('e2e/package-lock.json') }}
+          restore-keys: ${{ runner.os }}-npm-v2
+      - name: Install NodeJS deps
+        run: npm ci
+        working-directory: ./e2e
+      - name: Migrate database
+        run: mix do ecto.create, ecto.migrate
+      - uses: nanasess/setup-chromedriver@master
+      - name: Lint tests
+        run: cd e2e && npm run lint
+      - name: Run tests
+        run: |
+          mix phx.server &
+          cd e2e
+          npx wait-on -d 60000 -i 5000 --httpTimeout 300000 http://localhost:4002
+          count=$(ls cypress/integration/*.spec.ts | wc -l | tr -d ' ')
+          half=$(expr $count / 2)
+          list_of_files=$(ls cypress/integration/*.spec.ts | sed -n "$(expr 1 + $half \* ${{ matrix.machine }}), $(expr $half \* ${{ matrix.machine }} + $half)p" | xargs)
+          npx cypress run --browser chrome --headless --spec $list_of_files
+      - name: Upload artifacts (screenshots)
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: cypress screenshots
+          path: e2e/cypress/screenshots/
+      - name: Upload artifacts (downloads)
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: cypress downloads
+          path: e2e/cypress/downloads/
