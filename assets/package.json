@@ -41,7 +41,7 @@
     "stylelint-order": "^4.1.0",
     "stylelint-prettier": "^1.2.0",
     "stylelint-scss": "^3.20.1",
-    "tailwindcss": "^2.2.7",
+    "tailwindcss": "^2.2.8",
     "terser-webpack-plugin": "^5.1.1",
     "vfile-location": "^4.0.1",
     "webpack": "5.51.1",
