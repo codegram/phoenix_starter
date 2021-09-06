@@ -10,7 +10,7 @@
     "watch": "webpack --mode development --watch"
   },
   "dependencies": {
-    "alpinejs": "^3.2.4",
+    "alpinejs": "^3.3.1",
     "autoprefixer": "^10.3.3",
     "nprogress": "^0.2.0",
     "phoenix": "file:../deps/phoenix",
@@ -18,7 +18,7 @@
     "phoenix_live_view": "file:../deps/phoenix_live_view"
   },
   "devDependencies": {
-    "@babel/core": "^7.15.0",
+    "@babel/core": "^7.15.5",
     "@babel/preset-env": "^7.15.0",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.1",
