@@ -10,7 +10,7 @@
     "watch": "webpack --mode development --watch"
   },
   "dependencies": {
-    "alpinejs": "^3.2.4",
+    "alpinejs": "^3.3.1",
     "autoprefixer": "^10.3.3",
     "nprogress": "^0.2.0",
     "phoenix": "file:../deps/phoenix",
@@ -44,7 +44,7 @@
     "tailwindcss": "^2.2.8",
     "terser-webpack-plugin": "^5.1.1",
     "vfile-location": "^4.0.1",
-    "webpack": "5.51.1",
+    "webpack": "5.52.0",
     "webpack-cli": "^4.8.0"
   }
 }
