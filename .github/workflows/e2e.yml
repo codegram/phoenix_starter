@@ -50,7 +50,7 @@ jobs:
           elixir-version: "1.12.2" # Define the elixir version [required]
           otp-version: "24.0" # Define the OTP version [required]
       - name: Restore deps cache
-        uses: actions/cache@v2.1.7
+        uses: actions/cache@v3.2.5
         with:
           path: deps
           key: ${{ runner.os }}-deps-v1-${{ hashFiles('**/mix.lock') }}
@@ -62,7 +62,7 @@ jobs:
         with:
           node-version: "15"
       - name: Restore npm cache
-        uses: actions/cache@v2.1.7
+        uses: actions/cache@v3.2.5
         with:
           path: assets/node_modules
           key: ${{ runner.os }}-npm-v2-${{ hashFiles('assets/package-lock.json') }}
@@ -73,7 +73,7 @@ jobs:
       - run: npm run deploy
         working-directory: ./assets
       - name: Restore npm cache
-        uses: actions/cache@v2.1.7
+        uses: actions/cache@v3.2.5
         with:
           path: e2e/node_modules
           key: ${{ runner.os }}-npm-v2-${{ hashFiles('e2e/package-lock.json') }}

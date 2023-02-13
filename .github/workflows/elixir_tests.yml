@@ -52,7 +52,7 @@ jobs:
           otp-version: "24.0" # Define the OTP version [required]
           experimental-otp: true
       - name: Restore deps cache
-        uses: actions/cache@v2.1.7
+        uses: actions/cache@v3.2.5
         with:
           path: |
             **/_build
